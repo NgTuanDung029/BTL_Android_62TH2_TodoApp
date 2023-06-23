@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:background="@null"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:hint="New Task">
+        android:hint="Thêm mới">
     </EditText>
     <Button
         android:id="@+id/newTaskButton"
@@ -16,7 +16,7 @@
         android:layout_below="@id/newTaskText"
         android:layout_alignParentEnd="true"
         android:textSize="16sp"
-        android:text="Save"
+        android:text="Lưu"
         android:textAllCaps="false"
         android:background="@android:color/transparent"
         android:textColor="@android:color/darker_gray">

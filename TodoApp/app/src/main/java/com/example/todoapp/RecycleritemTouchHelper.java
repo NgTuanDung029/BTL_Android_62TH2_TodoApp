@@ -32,16 +32,16 @@ public class RecycleritemTouchHelper extends ItemTouchHelper.SimpleCallback {
         final int position = viewHolder.getAdapterPosition();
         if (direction == ItemTouchHelper.LEFT) {
             AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext());
-            builder.setTitle("Delete Task");
-            builder.setMessage("Are you sure you want to delete this Task");
-            builder.setPositiveButton("Confirm",
+            builder.setTitle("Xóa");
+            builder.setMessage("Có thể bạn đã xong công việc này rồi. Bạn chắc chắn muốn xóa chứ ?");
+            builder.setPositiveButton("Xóa",
                     new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             adapter.deleteItem(position);
                         }
                     });
-            builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+            builder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     adapter.notifyItemChanged(viewHolder.getAdapterPosition());
@@ -66,7 +66,7 @@ public class RecycleritemTouchHelper extends ItemTouchHelper.SimpleCallback {
 
         if (dX > 0) {
             icon = ContextCompat.getDrawable(adapter.getContext(), R.drawable.baseline_edit);
-            background = new ColorDrawable(ContextCompat.getColor(adapter.getContext(), R.color.colorPrimaryDark));
+            background = new ColorDrawable(ContextCompat.getColor(adapter.getContext(), com.google.android.material.R.color.design_default_color_primary_dark));
         } else {
             icon = ContextCompat.getDrawable(adapter.getContext(), R.drawable.baseline_delete);
             background = new ColorDrawable(Color.RED);
