@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
     private RecyclerView tasksRecyclerView;
     private ToDoAdapter tasksAdapter;
-    private FloatingActionButton fab;
+    private FloatingActionButton fab, alarm;
     private List<ToDoModel> taskList;
     private DatabaseHandler db;
     @Override
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
         tasksRecyclerView.setAdapter(tasksAdapter);
 
         fab = findViewById(R.id.fab);
+        alarm = findViewById(R.id.alarm);
 
         ItemTouchHelper itemTouchHelper =new
                 ItemTouchHelper(new RecycleritemTouchHelper(tasksAdapter));
@@ -54,6 +56,14 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
             @Override
             public void onClick(View v) {
                 AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
+            }
+        });
+
+        alarm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ClockActivity.class);
+                startActivity(intent);
             }
         });
     }

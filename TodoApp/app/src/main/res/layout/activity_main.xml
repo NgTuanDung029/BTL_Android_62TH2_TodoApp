@@ -37,4 +37,17 @@
         android:layout_marginBottom="32dp"
         android:backgroundTint="@android:color/holo_blue_bright"
         android:src="@drawable/baseline_add"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="328dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@android:color/holo_blue_bright"
+        android:src="@drawable/baseline_access_time_filled"></com.google.android.material.floatingactionbutton.FloatingActionButton>
 </RelativeLayout>
