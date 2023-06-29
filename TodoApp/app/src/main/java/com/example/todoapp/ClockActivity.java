@@ -93,10 +93,10 @@ public class ClockActivity extends AppCompatActivity {
 
     private void createNotificationChannel(){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            CharSequence name = "akchannel";
+            CharSequence name = "toto";
             String desc = "Báo thức";
             int imp = NotificationManager.IMPORTANCE_HIGH;
-            NotificationChannel channel = new NotificationChannel("androidknowledge", name, imp);
+            NotificationChannel channel = new NotificationChannel("todo", name, imp);
             channel.setDescription(desc);
             NotificationManager notificationManager = getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
