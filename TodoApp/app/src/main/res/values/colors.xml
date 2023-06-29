@@ -5,4 +5,5 @@
     <color name="colorPrimary">@android:color/holo_green_dark</color>
     <color name="colorPrimaryDark">@android:color/holo_green_dark</color>
     <color name="colorAccent">@android:color/white</color>
+    <color name="lavender">#8692f7</color>
 </resources>

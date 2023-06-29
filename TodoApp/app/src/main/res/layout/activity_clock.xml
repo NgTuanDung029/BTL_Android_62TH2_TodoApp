@@ -1,9 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClockActivity">
+    android:orientation="vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/alarm"
+    tools:context=".MainActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/selectTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="280dp"
+        android:text="Chọn giờ"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/setAlarm"
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="250dp"
+            android:text="Đặt báo thức"/>
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancelAlarm"
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginEnd="40dp"
+            android:layout_alignParentEnd="true"
+            android:text="Hủy"/>
+    </RelativeLayout>
+</LinearLayout>
+</layout>
