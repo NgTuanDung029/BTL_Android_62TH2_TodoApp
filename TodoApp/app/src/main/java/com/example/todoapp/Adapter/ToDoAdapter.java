@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -41,6 +42,8 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         db.openDatabase();
         ToDoModel item = todoList.get(position);
         holder.task.setText(item.getTask());
+        holder.toDoStart.setText("Giờ bắt đầu:" + item.getStartTime());
+        holder.toDoEnd.setText("Giờ kết thúc:"+item.getEndTime());
         holder.task.setChecked(toBoolean(item.getStatus()));
         holder.task.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -86,15 +89,19 @@ public class ToDoAdapter extends RecyclerView.Adapter<ToDoAdapter.ViewHolder> {
         Bundle bundle = new Bundle();
         bundle.putInt("id", item.getId());
         bundle.putString("task", item.getTask());
+        bundle.putString("startTime", item.getStartTime());
+        bundle.putString("endTime", item.getEndTime());
         AddNewTask fragment = new AddNewTask();
         fragment.setArguments(bundle);
         fragment.show(activity.getSupportFragmentManager(), AddNewTask.TAG);
     }
     public static class ViewHolder extends RecyclerView.ViewHolder{
         CheckBox task;
-
+        TextView toDoStart, toDoEnd;
         public ViewHolder(View view){
             super(view);
+            toDoStart=view.findViewById(R.id.toDoStart);
+            toDoEnd=view.findViewById(R.id.toDoEnd);
             task=view.findViewById(R.id.todoCheckBox);
         }
     }

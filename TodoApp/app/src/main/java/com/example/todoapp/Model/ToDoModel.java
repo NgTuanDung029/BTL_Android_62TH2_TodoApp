@@ -3,7 +3,8 @@ package com.example.todoapp.Model;
 public class ToDoModel {
     private int id, status;
     private String task;
-
+    private String startTime;
+    private String endTime;
     public int getId() {
         return id;
     }
@@ -28,5 +29,17 @@ public class ToDoModel {
         this.task = task;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
 
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+    public String getEndTime() {
+        return endTime;
+    }
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
 }

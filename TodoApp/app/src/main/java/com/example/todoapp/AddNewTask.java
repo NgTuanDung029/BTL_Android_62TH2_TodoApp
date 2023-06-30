@@ -22,7 +22,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 public class AddNewTask extends BottomSheetDialogFragment {
     public static final String TAG = "ActionBottomDialog";
 
-    private EditText newTaskText;
+    private EditText newTaskText, newStartTimeText, newEndTimeText;
     private Button newTaskSaveButton;
     private DatabaseHandler db;
 
@@ -47,6 +47,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         newTaskText = getView().findViewById(R.id.newTaskText);
+        newStartTimeText = getView().findViewById(R.id.startTimeText);
+        newEndTimeText = getView().findViewById(R.id.endTimeText);
         newTaskSaveButton = getView().findViewById(R.id.newTaskButton);
 
         db = new DatabaseHandler(getActivity());
@@ -57,7 +59,11 @@ public class AddNewTask extends BottomSheetDialogFragment {
         if(bundle != null){
             isUpdate = true;
             String task = bundle.getString("task");
+            String startTime = bundle.getString("startTime");
+            String endTime = bundle.getString("endTime");
             newTaskText.setText(task);
+            newStartTimeText.setText(startTime);
+            newEndTimeText.setText(endTime);
             if (task.length()>0)
                 newTaskSaveButton.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimaryDark));
         }
@@ -89,12 +95,16 @@ public class AddNewTask extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 String text = newTaskText.getText().toString();
+                String startTime = newStartTimeText.getText().toString();
+                String endTime = newEndTimeText.getText().toString();
                 if(finalIsUpdate){
-                    db.updateTask(bundle.getInt("id"), text);
+                    db.updateTask(bundle.getInt("id"), text, startTime, endTime);
                 }
                 else {
                     ToDoModel task = new ToDoModel();
                     task.setTask(text);
+                    task.setStartTime(startTime);
+                    task.setEndTime(endTime);
                     task.setStatus(0);
                     db.insertTask(task);
                 }

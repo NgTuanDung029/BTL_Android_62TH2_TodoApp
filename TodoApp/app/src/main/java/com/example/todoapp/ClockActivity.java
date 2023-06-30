@@ -43,7 +43,7 @@ public class ClockActivity extends AppCompatActivity {
                         .setMinute(0)
                         .setTitleText("Chọn giờ")
                         .build();
-                timePicker.show(getSupportFragmentManager(), "androidknowledge");
+                timePicker.show(getSupportFragmentManager(), "todo");
                 timePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -69,7 +69,9 @@ public class ClockActivity extends AppCompatActivity {
                 alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                 Intent intent = new Intent(ClockActivity.this, AlarmReceiver.class);
                 pendingIntent = PendingIntent.getBroadcast(ClockActivity.this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
-                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                Calendar alarmTime = (Calendar) calendar.clone(); // Create a copy of the selected time
+                alarmTime.add(Calendar.MINUTE, -10); // Subtract 5 minutes from the selected time
+                alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, alarmTime.getTimeInMillis(),
                         AlarmManager.INTERVAL_DAY, pendingIntent);
                 Toast.makeText(ClockActivity.this, "Đã đặt báo thức", Toast.LENGTH_SHORT).show();
             }

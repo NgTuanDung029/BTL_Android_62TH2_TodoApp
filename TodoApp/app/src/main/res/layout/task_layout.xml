@@ -19,5 +19,17 @@
             android:paddingStart="8dp"
             android:buttonTint="@android:color/holo_blue_dark">
         </CheckBox>
+        <TextView
+            android:id="@+id/toDoStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/todoCheckBox">
+        </TextView>
+        <TextView
+            android:id="@+id/toDoEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toDoStart">
+        </TextView>
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

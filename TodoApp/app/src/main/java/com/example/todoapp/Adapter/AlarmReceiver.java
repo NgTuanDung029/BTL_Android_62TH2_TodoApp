@@ -24,7 +24,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "todo")
                 .setSmallIcon(R.drawable.baseline_notifications_24)
                 .setContentTitle("Cánh bảo!")
-                .setContentText("Có công việc đã quá hạn")
+                .setContentText("Có công việc sắp quá hạn")
                 .setAutoCancel(true)
                 .setSound(soundUri)
                 .setDefaults(NotificationCompat.DEFAULT_ALL)
