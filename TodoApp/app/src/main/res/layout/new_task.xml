@@ -1,34 +1,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <EditText
         android:id="@+id/newTaskText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="369dp"
+        android:layout_height="72dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="9dp"
         android:background="@null"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:hint="Thêm mới">
-    </EditText>
+        android:hint="Thêm mới"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"></EditText>
+
     <TimePicker
         android:id="@+id/startTimePicker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
+        android:layout_width="366dp"
+        android:layout_height="136dp"
         android:layout_below="@id/newTaskText"
+        android:layout_alignParentStart="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:background="@null"
+        android:hint="Thời gian bắt đầu"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:timePickerMode="spinner"
-        android:hint="Thời gian bắt đầu">
-    </TimePicker>
+        android:timePickerMode="spinner"></TimePicker>
+
     <TimePicker
         android:id="@+id/endTimePicker"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
+        android:layout_width="372dp"
+        android:layout_height="175dp"
         android:layout_below="@id/startTimePicker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="1dp"
+        android:background="@null"
+        android:hint="Thời gian bắt đầu"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:timePickerMode="spinner"
-        android:hint="Thời gian bắt đầu">
-    </TimePicker>
+        android:timePickerMode="spinner"></TimePicker>
+
     <Button
         android:id="@+id/newTaskButton"
         android:layout_width="wrap_content"
