@@ -9,8 +9,8 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:hint="Thêm mới">
     </EditText>
-    <EditText
-        android:id="@+id/startTimeText"
+    <TimePicker
+        android:id="@+id/startTimePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
@@ -18,22 +18,22 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:timePickerMode="spinner"
         android:hint="Thời gian bắt đầu">
-    </EditText>
-    <EditText
-        android:id="@+id/endTimeText"
+    </TimePicker>
+    <TimePicker
+        android:id="@+id/endTimePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@null"
-        android:layout_below="@id/startTimeText"
+        android:layout_below="@id/startTimePicker"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:timePickerMode="spinner"
         android:hint="Thời gian bắt đầu">
-    </EditText>
+    </TimePicker>
     <Button
         android:id="@+id/newTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/endTimeText"
+        android:layout_below="@id/endTimePicker"
         android:layout_alignParentEnd="true"
         android:textSize="16sp"
         android:text="Lưu"

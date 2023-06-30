@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
 import androidx.core.content.ContextCompat;
 
@@ -47,8 +48,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
         newTaskText = getView().findViewById(R.id.newTaskText);
-        newStartTimeText = getView().findViewById(R.id.startTimeText);
-        newEndTimeText = getView().findViewById(R.id.endTimeText);
+        TimePicker startTimePicker = getView().findViewById(R.id.startTimePicker);
+        TimePicker endTimePicker = getView().findViewById(R.id.endTimePicker);
         newTaskSaveButton = getView().findViewById(R.id.newTaskButton);
 
         db = new DatabaseHandler(getActivity());
@@ -62,8 +63,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
             String startTime = bundle.getString("startTime");
             String endTime = bundle.getString("endTime");
             newTaskText.setText(task);
-            newStartTimeText.setText(startTime);
-            newEndTimeText.setText(endTime);
+            setTimePicker(startTimePicker, startTime);
+            setTimePicker(endTimePicker, endTime);
             if (task.length()>0)
                 newTaskSaveButton.setTextColor(ContextCompat.getColor(getContext(),R.color.colorPrimaryDark));
         }
@@ -95,8 +96,8 @@ public class AddNewTask extends BottomSheetDialogFragment {
             @Override
             public void onClick(View v) {
                 String text = newTaskText.getText().toString();
-                String startTime = newStartTimeText.getText().toString();
-                String endTime = newEndTimeText.getText().toString();
+                String startTime = getTimePickerTime(startTimePicker);
+                String endTime = getTimePickerTime(endTimePicker);
                 if(finalIsUpdate){
                     db.updateTask(bundle.getInt("id"), text, startTime, endTime);
                 }
@@ -118,5 +119,23 @@ public class AddNewTask extends BottomSheetDialogFragment {
         if (activity instanceof DialogCloseListener){
             ((DialogCloseListener)activity).handleDialogClose(dialog);
         }
+    }
+    private void setTimePicker(TimePicker timePicker, String timeString) {
+        int hourOfDay = 0;
+        int minute = 0;
+        if (timeString != null && !timeString.isEmpty()) {
+            String[] timeParts = timeString.split(":");
+            if (timeParts.length == 2) {
+                hourOfDay = Integer.parseInt(timeParts[0]);
+                minute = Integer.parseInt(timeParts[1]);
+            }
+        }
+        timePicker.setHour(hourOfDay);
+        timePicker.setMinute(minute);
+    }
+    private String getTimePickerTime(TimePicker timePicker) {
+        int hourOfDay = timePicker.getHour();
+        int minute = timePicker.getMinute();
+        return String.format("%02d:%02d", hourOfDay, minute);
     }
 }
